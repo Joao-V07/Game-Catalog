@@ -49,7 +49,7 @@ public class Game {
         this.developer = developer;
     }
 
-    public long getReleaseYear() {
+    public int getReleaseYear() {
         return releaseYear;
     }
 

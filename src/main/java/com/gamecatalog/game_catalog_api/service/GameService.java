@@ -25,4 +25,15 @@ public class GameService {
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
+
+    public Game update(Long id, Game gameDetails) {
+        Game game = repository.findById(id).orElseThrow(() -> new RuntimeException("GAME NOT FOUND"));
+
+        game.setName(gameDetails.getName());
+        game.setGenre(gameDetails.getGenre());
+        game.setDeveloper(gameDetails.getDeveloper());
+        game.setReleaseYear(gameDetails.getReleaseYear());
+
+        return repository.save(game);
+    }
 }
